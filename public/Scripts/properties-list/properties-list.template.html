@@ -1,0 +1,28 @@
+<div id="sidebarContent">
+	<div>
+		<h2>Property Listing</h2>
+		<hr>
+	</div>
+	<div id="searchBox">
+		Search: <input ng-model="query" />
+	</div>
+	<div class="list-group" id="properties">
+		<div ng-repeat="property in $ctrl.properties | filter:query">
+			<a href="#" class="list-group-item list-group-item-action" ng-click=$ctrl.select(property) ng-class="{active: property.isSelected}">
+				<div class="property-wrapper">
+					<div class="property-thumbnail">
+						<img class="property-thumbnail-image" ng-src="{{property.image}}" />
+					</div>
+					<div class="property-data">
+						<div>
+							{{property.title}}
+						</div>
+						<div>
+							{{property.address}}
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
